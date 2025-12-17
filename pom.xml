@@ -13,19 +13,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>student-management</name>
     <description>student-management</description>
-    <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -38,7 +25,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
@@ -72,22 +58,20 @@
             <version>5.7.0</version>
             <scope>test</scope>
         </dependency>
-             <!-- Mockito dependencies -->
-<dependency>
-    <groupId>org.mockito</groupId>
-    <artifactId>mockito-core</artifactId>
-    <version>4.5.0</version>
-    <scope>test</scope>
-</dependency>
-
-<!-- Mockito-JUnit5 integration -->
-<dependency>
-    <groupId>org.mockito</groupId>
-    <artifactId>mockito-junit-jupiter</artifactId>
-    <version>4.5.0</version>
-    <scope>test</scope>
-</dependency>
-
+        <!-- Mockito dependencies -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>4.5.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Mockito-JUnit5 integration -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>4.5.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -97,13 +81,14 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
+                    <useModulePath>false</useModulePath> <!-- Disable module path for JUnit 5 compatibility -->
                     <includes>
                         <include>**/*Test.java</include> <!-- Optional: specify test classes -->
                     </includes>
                     <testFailureIgnore>false</testFailureIgnore>
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                 </configuration>
-            </plugin> <!-- Correct closing of the plugin tag here -->
+            </plugin>
 
             <plugin>
                 <groupId>org.springframework.boot</groupId>
