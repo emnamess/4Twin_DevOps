@@ -108,18 +108,16 @@
         <plugins>
             <!-- Maven Surefire Plugin for running tests -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version> 
-                <configuration>
-                    <useModulePath>false</useModulePath> <!-- Avoid module path issues -->
-                    <includes>
-                        <include>**/*Test.java</include> <!-- Match all test classes with Test in their names -->
-                    </includes>
-                    <testFailureIgnore>false</testFailureIgnore>
-                    <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
-                </configuration>
-            </plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M5</version>
+            <configuration>
+                <useModulePath>false</useModulePath>  <!-- Disable the module path for JUnit 5 -->
+                <includes>
+                    <include>**/*Test.java</include>  <!-- Ensure proper test pattern -->
+                </includes>
+            </configuration>
+        </plugin>
 
             <!-- Spring Boot Maven Plugin for packaging the app -->
             <plugin>
